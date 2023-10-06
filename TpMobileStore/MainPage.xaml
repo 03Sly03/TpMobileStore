@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TpMobileStore.MainPage">
+
+    <FlexLayout Direction="Row" Wrap="Wrap"  Grid.Row="1" Grid.ColumnSpan="2" x:Name="maPage">
+        <ListView ItemsSource="{Binding Datas}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <VerticalStackLayout>
+                            <Label 
+                                Text="{Binding Title}"
+                                VerticalOptions="Center"
+                                HorizontalOptions="Center"/>
+                            <Image 
+                                Source="{Binding Image}"
+                                HeightRequest="250"
+                                HorizontalOptions="Center"/>
+                            <Label 
+                                Text="{Binding Rating.Rate}"
+                                VerticalOptions="Center"
+                                HorizontalOptions="Center"/>
+                            <Label 
+                                Text="{Binding Category}"
+                                VerticalOptions="Center"
+                                HorizontalOptions="Center"/>
+                            <Label 
+                                Text="{Binding Price}"
+                                VerticalOptions="Center"
+                                HorizontalOptions="Center"/>
+                            <Label 
+                                Text="{Binding Description}"
+                                VerticalOptions="Center"
+                                HorizontalOptions="Center"/>
+                            <Button Text="Voir" FlexLayout.Basis="50%" Command="{Binding Source={x:Reference maPage}, Path=BindingContext.ShowCommand}" />
+                        </VerticalStackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </FlexLayout>
+
+</ContentPage>
