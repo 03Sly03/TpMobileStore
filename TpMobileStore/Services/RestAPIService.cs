@@ -29,10 +29,10 @@ namespace TpMobileStore.Services
             return datas;
         }
 
-        //public async Task<Product> GetById(int id)
-        //{
-        //    Product product = await httpClient.GetFromJsonAsync<Product>("products/" + id);
-        //    return product;
-        //}
+        public async Task<Product> GetById(int id)
+        {
+            Product product = await httpClient.GetFromJsonAsync<Product>("products/" + id);
+            return product;
+        }
     }
 }

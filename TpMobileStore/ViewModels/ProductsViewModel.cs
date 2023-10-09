@@ -14,22 +14,21 @@ using TpMobileStore.Services;
 
 namespace TpMobileStore.ViewModels
 {
-    public class ProductsViewModel : ObservableObject
+    public partial class ProductsViewModel : BaseViewModel
     {
-        private IAPIService _apiService;
+
         public ICommand ShowCommand { get; set; }
         public ObservableCollection<Product> Datas { get; set; }
-        //public string Element {  get; set; }
-        //public Product MyProduct { get; set; }
-        public INavigation Navigation { get; set; }
 
-        public ProductsViewModel(INavigation navigation, IAPIService apiService)
+
+        public ProductsViewModel(INavigationService navigationService, IAPIService apiService) : base(navigationService, apiService)
         {
-            _apiService = apiService;
+
             Datas = new ObservableCollection<Product>();
             GetAll();
-            ShowCommand = new RelayCommand(ShowProduct);
-            Navigation = navigation;
+
+            ShowCommand = new Command<Product>(execute: ShowProduct);
+
         }
 
         public async void GetAll()
@@ -39,10 +38,10 @@ namespace TpMobileStore.ViewModels
                 Datas.Add(product);
             }
         }
-
-        public async void ShowProduct()
+        
+        public async void ShowProduct(Product product)
         {
-            await Navigation.PushAsync(new ProductDetails());
+            await _navigationService.NavigateToAsync(nameof(ProductDetails), new Dictionary<string, object>() { { "MyProductDetails", product } });
         }
     }
 }
