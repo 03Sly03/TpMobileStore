@@ -9,6 +9,7 @@ namespace TpMobileStore
             InitializeComponent();
             Routing.RegisterRoute(nameof(MainPage), typeof(MainPage));
             Routing.RegisterRoute(nameof(ProductDetails), typeof(ProductDetails));
+            Routing.RegisterRoute(nameof(CartPage), typeof(CartPage));
         }
     }
 }

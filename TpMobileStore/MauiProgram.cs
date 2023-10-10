@@ -11,12 +11,16 @@ namespace TpMobileStore
         public static MauiApp CreateMauiApp()
         {
             var builder = MauiApp.CreateBuilder();
-            builder.Services.AddTransient<ProductsViewModel>();
-            builder.Services.AddTransient<ProductViewModel>();
-            builder.Services.AddTransient<IAPIService, RestAPIService>();
+            builder.Services.AddScoped<ProductsViewModel>();
+            builder.Services.AddScoped<ProductViewModel>();
+            builder.Services.AddScoped<CartViewModel>();
+            builder.Services.AddScoped<IAPIService, RestAPIService>();
             builder.Services.AddTransient<MainPage>();
             builder.Services.AddTransient<ProductDetails>();
-            builder.Services.AddTransient<INavigationService, NavigationService>();
+            builder.Services.AddScoped<INavigationService, NavigationService>();
+            builder.Services.AddSingleton<ArgsService>();
+            builder.Services.AddScoped<CartService>();
+            builder.Services.AddScoped<CartPage>();
             builder
                 .UseMauiApp<App>()
                 .ConfigureFonts(fonts =>

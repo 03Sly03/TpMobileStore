@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TpMobileStore.Pages.CartPage"
+             Title="CartPage"
+             x:Name="MyCart">
+    <VerticalStackLayout>
+        <Label
+            Text="Panier"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"/>
+        <ScrollView>
+            <CollectionView ItemsSource="{Binding ProductCarts}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <VerticalStackLayout MaximumHeightRequest="200">
+                            <HorizontalStackLayout>
+                                <Image Source="{Binding Product.Image}" MaximumHeightRequest="150" MaximumWidthRequest="100"></Image>
+                                <Label VerticalOptions="Center" VerticalTextAlignment="Center" Text="{Binding Product.Title}"></Label>
+                            </HorizontalStackLayout>
+                            <HorizontalStackLayout>
+                                <Label Text="{Binding Product.Price}"></Label>
+                                <Label Text="Euros"></Label>
+                                <Label Text="{Binding Quantity}"></Label>
+                                <Label Text="qty"></Label>
+                                <Button CommandParameter="{Binding Product.Id}" Command="{Binding Source={x:Reference MyCart}, Path=BindingContext.DeleteProductCommand }" Text="delete"></Button>
+                            </HorizontalStackLayout>
+                        </VerticalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </ScrollView>
+        <Label Text="le total : "/>
+        <Label Text="{Binding Total}"></Label>
+        <Button Text="Go to Shop" Command="{Binding GoBackCommand}"></Button>
+    </VerticalStackLayout>
+</ContentPage>

@@ -1,5 +1,3 @@
-using CommunityToolkit.Mvvm.ComponentModel;
-using TpMobileStore.Models;
 using TpMobileStore.ViewModels;
 
 namespace TpMobileStore.Pages;

@@ -15,6 +15,10 @@
     <ShellContent
         Title="Product"
         ContentTemplate="{DataTemplate Pages:ProductDetails}"
-        Route="ProductDetails" />
-
+        Route="ProductDetails" />   
+    
+    <ShellContent
+        Title="Product"
+        ContentTemplate="{DataTemplate Pages:CartPage}"
+        Route="CartPage" />    
 </Shell>

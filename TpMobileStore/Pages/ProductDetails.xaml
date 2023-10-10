@@ -7,16 +7,31 @@
              Title="Détail du produit">
     <VerticalStackLayout>
         <Label 
-            Text="Page Produit"
+            Text="Le Produit"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
         <Label 
             Text="{Binding MyProductDetails.Title}"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
+        <Image
+            Source="{Binding MyProductDetails.Image}"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            HeightRequest="250"/>
+        <Label 
+            Text="{Binding MyProductDetails.Rating.Rate}"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Label 
+            Text="{Binding MyProductDetails.Price}"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
         <Label 
             Text="{Binding MyProductDetails.Description}"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
+        <Button Text="Go to Shop" Command="{Binding GoBackCommand}"></Button>
+        <Button Text="Add To Cart" Command="{Binding AddToCartCommand}"></Button>
     </VerticalStackLayout>
 </ContentPage>

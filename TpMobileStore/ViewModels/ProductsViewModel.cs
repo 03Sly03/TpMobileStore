@@ -38,10 +38,10 @@ namespace TpMobileStore.ViewModels
                 Datas.Add(product);
             }
         }
-        
+
         public async void ShowProduct(Product product)
         {
-            await _navigationService.NavigateToAsync(nameof(ProductDetails), new Dictionary<string, object>() { { "MyProductDetails", product } });
+            await _navigationService.NavigateToAsync(nameof(ProductDetails), new Dictionary<string, object>() { { "MyProduct", product } });
         }
     }
 }
